@@ -56,9 +56,8 @@
     <div id = "frame1">
         <div id="text1">
             <h2>Timed Quiz</h2>
-            <h2> Time Remaining: 
+            <h2> Time Remaining: <p text id="timerEl">75</p></h2>
                 <div id="countdown"></div>
-            </h2>
             <p>Question: <text id="number1">0</text></p>
             <p>Score: <text id="score1">0</text></p>
         <hr />
@@ -72,11 +71,12 @@
             <div id="option4"></div>
             <div id="answer1"></div>
             <div id="text1">
-                <div id = "disappear1"><button class="button1" onclick="begin1()">Begin</button></div>
+                <div id = "disappear1"><button class="button1" onclick="countdown()">Begin</button></div>
             </div>
             <div id="next1"></div>
+            <div id="submit"></div>
         </div>
-        </div>
+    </div>
 
             
     <script src="./script.js"></script>

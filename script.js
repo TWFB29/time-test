@@ -1,15 +1,17 @@
-var q = ["What is the capitol of Ohio?", "Pick the one that is not a mammal.", "What is 5 * 5?", "How many outs are there in a full inning in baseball?", "What highschool did LeBron James attend?"]
-var a1 = ["<button class=button2 onclick=q1c()>Columbus</button>", "<button class=button2 onclick=q1i()>Dog</button>", "<button class=button2 onclick=q1i()>5</button>",
-          "<button class=button2 onclick=q1i()>3</button>", "<button class=button2 onclick=q1i()>Hoban</button>",];
+var q = ["Commonly used data types DO NOT include:", "The condition in an if / else statement is enclosed within ____.", 
+         "Arrays in Javascript can be used to store ____.", "String values must be enclosed within ____ when being assigned to variables.", 
+         "A very useful tool for used during development and debugging for printing content to the debugger is:"]
+var a1 = ["<button class=button2 onclick=q1i()>strings</button>", "<button class=button2 onclick=q1i()>quotes</button>", "<button class=button2 onclick=q1i()>numbers and strings</button>",
+          "<button class=button2 onclick=q1i()>commas</button>", "<button class=button2 onclick=q1i()>Javascript</button>",];
 
-var a2 = ["<button class=button2 onclick=q1i()>Cinncinati</button>", "<button class=button2 onclick=q1i()>Cat</button>", "<button class=button2 onclick=q1i()>20</button>",
-          "<button class=button2 onclick=q1i()>5</button>", "<button class=button2 onclick=q1i()>Walsh</button>",];
+var a2 = ["<button class=button2 onclick=q1i()>booleans</button>", "<button class=button2 onclick=q1i()>curly brackets</button>", "<button class=button2 onclick=q1i()>other arrays</button>",
+          "<button class=button2 onclick=q1i()>curly brackets</button>", "<button class=button2 onclick=q1i()>terminal / bash</button>",];
 
-var a3 = ["<button class=button2 onclick=q1i()>Cleveland</button>", "<button class=button2 onclick=q1c()>Snake</button>", "<button class=button2 onclick=q1i()>10</button>",
-          "<button class=button2 onclick=q1c()>6</button>", "<button class=button2 onclick=q1i()>Oak Hill</button>",];
+var a3 = ["<button class=button2 onclick=q1c()>alerts</button>", "<button class=button2 onclick=q1c()>parentheses</button>", "<button class=button2 onclick=q1i()>booleans</button>",
+          "<button class=button2 onclick=q1c()>quotes</button>", "<button class=button2 onclick=q1i()>for loops</button>",];
 
-var a4 = ["<button class=button2 onclick=q1i()>Akron</button>", "<button class=button2 onclick=q1c()>Cow</button>", "<button class=button2 onclick=q1c()>25</button>",
-          "<button class=button2 onclick=q1i()>54</button>", "<button class=button2 onclick=q1c()>St. Vincent St. Mary</button>",];
+var a4 = ["<button class=button2 onclick=q1i()>numbers</button>", "<button class=button2 onclick=q1c()>square brackets</button>", "<button class=button2 onclick=q1c()>all of the above</button>",
+          "<button class=button2 onclick=q1i()>parenthesis</button>", "<button class=button2 onclick=q1c()>console log</button>",];
 
 var c = ["Correct", "Correct", "Correct", "Correct", "Correct", "Correct", "Correct", "Correct", "Correct", "Correct",];
 var i = ["Incorrect", "Incorrect", "Incorrect", "Incorrect", "Incorrect", "Incorrect", "Incorrect", "Incorrect", "Incorrect", "Incorrect",];
@@ -19,31 +21,35 @@ n++;
 var s = 0;
 s++;
 var z = 0
-var timerEl = document.getElementById('countdown');
+var wrong = 10;
+//var timerEl = document.getElementById('countdown');
 function countdown() {
     var timeleft = 75;
     var timeInterval= setInterval(function () {
-        if (timeleft > 1) {
-            timerEl.textContent = timeleft + ' seconds';
+        if (timeleft >= 1) {
+            timerEl.innerHTML = timeleft + ' seconds';
             timeleft--;
         }
         else if (timeleft === 1) {
-            timerEl.textContent = timeleft + ' second';
+            timerEl.innerHTM = timeleft + ' second';
             timeleft--;
         }
         else {
-            timerEl.textContent = '';
+            timerEl.innerHTM = '';
             clearInterval(timeInterval);
             timerEl.textContent = "FIN";
+            ls()
         }
     }, 1000);
     begin1()
 }
     function begin1() {
+        
         disappear1.innerHTML = "";
         
         message1.innerHTML = "";
-        
+        answer1.innerHTML = "";
+        next1.innerHTML = "";
         question1.innerHTML = q[z];
         option1.innerHTML = a1[z];
         option2.innerHTML = a2[z];
@@ -69,10 +75,19 @@ function countdown() {
         option2.innerHTML = "";
         option3.innerHTML = "";
         option4.innerHTML = "";
-        next1.innerHTML = "<button class=button1 onclick=begin1()>Next</button>";
+        next1.innerHTML = "<button class=button1 onclick=begin1()>Next</button>";  
     }
+
     
-    
+    function ls() {
+        var sco = (prompt("enter your initials please"));
+        while (sco === null) {
+            alert("please submit your initials");
+            var sco = (prompt("enter your initials please"));
+        };
+        localStorage.setItem(sco + " " + s) 
+
+    }
         
     
               
