@@ -39,7 +39,16 @@ function countdown() {
             clearInterval(timeInterval);
             timerEl.textContent = "FIN";
             ls()
+            
         }
+        if (z === 6) {
+            question1.innerHTML = "";
+            option1.innerHTML = "";
+            option2.innerHTML = "";
+            option3.innerHTML = "";
+            option4.innerHTML = "";
+            ls()
+        };
     }, 1000);
     begin1()
 }
@@ -78,16 +87,18 @@ function countdown() {
         next1.innerHTML = "<button class=button1 onclick=begin1()>Next</button>";  
     }
 
+    var submitBtn = document.createElement("button");
+    submitBtn.setAttribute("type", "submit");
+    submitBtn.setAttribute("id", "submit");
+    submitBtn.textContent = "Submit";
+    qDiv.appendChild(submitBtn);
     
     function ls() {
+        submitBtn.addEventListener("click", function () {
+            var initials = newP3.value;
         var sco = (prompt("enter your initials please"));
-        while (sco === null) {
-            alert("please submit your initials");
-            var sco = (prompt("enter your initials please"));
-        };
         localStorage.setItem(sco + " " + s) 
-
-    }
+    };
         
     
               
