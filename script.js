@@ -15,7 +15,7 @@ var a4 = ["<button class=button2 onclick=q1i()>numbers</button>", "<button class
 
 var c = ["Correct", "Correct", "Correct", "Correct", "Correct", "Correct", "Correct", "Correct", "Correct", "Correct",];
 var i = ["Incorrect", "Incorrect", "Incorrect", "Incorrect", "Incorrect", "Incorrect", "Incorrect", "Incorrect", "Incorrect", "Incorrect",];
-
+var timeleft = 75;
 var n = 0;
 n++;
 var s = 0;
@@ -24,7 +24,7 @@ var z = 0
 var wrong = 10;
 //var timerEl = document.getElementById('countdown');
 function countdown() {
-    var timeleft = 75;
+    
     var timeInterval= setInterval(function () {
         if (timeleft >= 1) {
             timerEl.innerHTML = timeleft + ' seconds';
@@ -47,7 +47,11 @@ function countdown() {
             option2.innerHTML = "";
             option3.innerHTML = "";
             option4.innerHTML = "";
+            number1.innerHTM = "";
+            clearInterval(timeInterval);
+            timerEl.textContent = "FIN"
             ls()
+            
         };
     }, 1000);
     begin1()
@@ -79,26 +83,33 @@ function countdown() {
     }
 
     function q1i() {
+        timeleft -= 10
         answer1.innerHTML = "<div id=red>" + i[0] + "</div>";
         option1.innerHTML = "";
         option2.innerHTML = "";
         option3.innerHTML = "";
         option4.innerHTML = "";
         next1.innerHTML = "<button class=button1 onclick=begin1()>Next</button>";  
+        
     }
 
-    var submitBtn = document.createElement("button");
-    submitBtn.setAttribute("type", "submit");
-    submitBtn.setAttribute("id", "submit");
-    submitBtn.textContent = "Submit";
-    qDiv.appendChild(submitBtn);
-    
     function ls() {
-        submitBtn.addEventListener("click", function () {
-            var initials = newP3.value;
-        var sco = (prompt("enter your initials please"));
-        localStorage.setItem(sco + " " + s) 
-    };
         
+        var pro = (prompt("enter your initials."));
+        
+        var po = pro + " " + s
+        localStorage.setItem('initials', po);
+           
+        localStorage.getItem('initials');
+        
+        console.log(localStorage.initials);
+        
+    };
+ 
+    
+            
+       
+   
+    
     
               
